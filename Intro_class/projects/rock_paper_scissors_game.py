@@ -1,8 +1,14 @@
 from random import choice
 
 print("Rule of the game".center(60, "="))
+print("""
+        Rock smashes scissors.
+        Paper covers rock.
+        Scissors cut paper.
+        """)
 computer_sco=0
 player_sco=0
+tie=0
 count=0
 while True:
     poss_ac=["rock", "paper", "scissors"]
@@ -12,6 +18,7 @@ while True:
     print(f"your choice is {user_guess} computer choice is {comp_guess}")
     if user_guess==comp_guess:
         print(f"It is tie, Both select {user_guess}")
+        tie +=1
     elif user_guess=='rock':
         if comp_guess=='paper':
             print("Oops, You lose Computer won!")
@@ -45,5 +52,10 @@ while True:
     play_again=play_again.upper()
     if play_again != 'Y':
         break
-    count += 1
-print (f"Total prompt: {count}")
+    
+total_count= tie + computer_sco + player_sco
+print("Game Statstics".center(100,'+'))
+print (f"Total prompt: {total_count}")
+print(f"Tie: {tie}")
+print (f"Computer won: {computer_sco}")
+print(f"You Won: {player_sco}")
